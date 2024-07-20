@@ -1,0 +1,201 @@
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondoryColor: hsl(187, 85%, 73%);
+  --gradientColor: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 240);
+  --cardBG: rgb(225, 225, 235);
+}
+
+.header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--whiteColorDeam);
+  width: 100%;
+  padding: 1rem;
+  z-index: 1000;
+
+  .logo {
+    color: var(--blackColor);
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .icon {
+      font-size: 25px;
+      color: var(--PrimaryColor);
+      margin-right: 5px;
+    }
+
+    h1 {
+      margin: 0;
+    }
+  }
+
+  .navBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 1;
+
+    &.open {
+      display: block;
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .navList {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      justify-content: center;
+      width: 100%;
+
+      .navItem {
+        margin: 0 15px;
+      }
+
+      .navLink {
+        text-decoration: none;
+        color: var(--textColor);
+      }
+
+      .buttonItem {
+        margin: 0 15px;
+
+        .btn {
+          padding: 8px 16px;
+          background-color: var(--PrimaryColor);
+          color: var(--whiteColor);
+          border: none;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          margin-top: -.3rem;
+
+          &:hover {
+            background: var(--gradientColor);
+          }
+
+          a {
+            text-decoration: none;
+            color: var(--whiteColor);
+            font-weight: 600;
+          }
+        }
+
+        @media screen and (max-width: 768px) {
+          margin: 0;
+          margin-left: 15px;
+        }
+      }
+    }
+
+    .closeNavbar {
+      display: none;
+    }
+
+    .toggleNavBar {
+      display: none;
+    }
+
+    @media screen and (max-width: 768px) {
+      display: none;
+      position: absolute;
+      background: var(--whiteColorDeam);
+      height: max-content;
+      width: 80%;
+      border-radius: 1rem;
+      top: 8rem;
+      left: 50%;
+      padding: 1rem;
+      transform: translate(-50%, -100%);
+      z-index: 2000;
+      box-shadow: 0 2px 4px rgba(2, 15, 29, 0.904);
+
+      &.open {
+        display: block;
+        transform: translate(-50%, 0%);
+        opacity: 1;
+      }
+
+      .navList {
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        margin: auto;
+        padding: .5rem 0;
+        align-items: center;
+
+        .navItem {
+          padding: .5rem 0;
+        }
+
+        .navLink {
+          color: var(--textColor);
+          font-size: 1rem;
+          font-weight: 600;
+
+          &:hover {
+            color: var(--PrimaryColor);
+          }
+        }
+
+        .btn {
+          margin-top: 1rem;
+          padding: 5px 10px;
+          width: 8rem;
+
+          a {
+            font-weight: 600;
+            color: var(--whiteColor);
+          }
+        }
+      }
+
+      .closeNavbar {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+        color: var(--PrimaryColor);
+
+        &:hover {
+          color: var(--SecondoryColor);
+        }
+      }
+    }
+
+    .toggleNavBar {
+      display: block;
+
+      .icon {
+        font-size: 25px;
+        color: var(--PrimaryColor);
+      }
+
+      &:hover .icon {
+        color: var(--SecondoryColor);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .toggleNavBar {
+    display: none;
+  }
+}

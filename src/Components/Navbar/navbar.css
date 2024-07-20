@@ -1,0 +1,205 @@
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondoryColor: hsl(187, 85%, 73%);
+  --gradientColor: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 240);
+  --cardBG: rgb(225, 225, 235);
+}
+
+.header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--whiteColorDeam);
+  width: 100%;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.header .logo {
+  color: var(--blackColor);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .logo .icon {
+  font-size: 25px;
+  color: var(--PrimaryColor);
+  margin-right: 5px;
+}
+
+.header .logo h1 {
+  margin: 0;
+}
+
+.header .navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.header .navBar.open {
+  display: block;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.header .navBar .navList {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+  width: 100%;
+}
+
+.header .navBar .navList .navItem {
+  margin: 0 15px;
+}
+
+.header .navBar .navList .navLink {
+  text-decoration: none;
+  color: var(--textColor);
+}
+
+.header .navBar .navList .buttonItem {
+  margin: 0 15px;
+}
+
+.header .navBar .navList .buttonItem .btn {
+  padding: 10px 20px;
+  background-color: var(--gradientColor);
+  color: var(--whiteColor);
+  border: none;
+  cursor: pointer;
+}
+
+.header .navBar .navList .buttonItem .btn:hover {
+  background: var(--PrimaryColor);
+}
+
+.header .navBar .navList .buttonItem .btn a {
+  text-decoration: none;
+  color: var(--whiteColor);
+}
+
+@media screen and (min-width: 769px) {
+  .header .navBar .navList .buttonItem .btn {
+    padding: 8px 16px;
+  }
+}
+
+.header .navBar .closeNavbar {
+  display: none;
+}
+
+.header .navBar .toggleNavBar {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .header .navBar {
+    display: none;
+    position: absolute;
+    background: var(--whiteColorDeam);
+    height: -moz-max-content;
+    height: max-content;
+    width: 80%;
+    border-radius: 1rem;
+    top: 8rem;
+    left: 50%;
+    padding: 1rem;
+    transform: translate(-50%, -100%);
+    z-index: 2000;
+    box-shadow: 0 2px 4px rgba(2, 15, 29, 0.904);
+  }
+
+  .header .navBar.open {
+    display: block;
+    transform: translate(-50%, 0%);
+    opacity: 1;
+  }
+
+  .header .navBar .navList {
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+    padding: 0.5rem 0;
+    align-items: center;
+  }
+
+  .header .navBar .navList .navItem {
+    padding: 0.5rem 0;
+  }
+
+  .header .navBar .navList .navLink {
+    color: var(--textColor);
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .header .navBar .navList .navLink:hover {
+    color: var(--PrimaryColor);
+  }
+
+  .header .navBar .navList .btn {
+    margin-top: 1rem;
+    padding: 5px 10px;
+    width: 8rem;
+  }
+
+  .header .navBar .navList .btn a {
+    font-weight: 600;
+    color: var(--whiteColor);
+  }
+
+  .header .navBar .closeNavbar {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    color: var(--PrimaryColor);
+  }
+
+  .header .navBar .closeNavbar:hover {
+    color: var(--SecondoryColor);
+  }
+}
+
+.header .navBar .toggleNavBar {
+  display: block;
+}
+
+.header .navBar .toggleNavBar .icon {
+  font-size: 25px;
+  color: var(--PrimaryColor);
+}
+
+.header .navBar .toggleNavBar:hover .icon {
+  color: var(--SecondoryColor);
+}
+
+@media screen and (max-width: 768px) {
+  .navBar {
+    display: none;
+  }
+
+  .navBar.open {
+    display: block;
+  }
+}

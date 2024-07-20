@@ -1,0 +1,180 @@
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondoryColor: hsl(187, 85%, 73%);
+  --gradientColor: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 240);
+  --cardBG: rgb(225, 225, 235);
+  --cardHover: rgb(255, 255, 255);
+}
+
+.main {
+  width: 100%;
+
+  .secTitle {
+    .title {
+      position: relative;
+      width: max-content;
+      color: var(--textColor);
+      margin: 1rem 0;
+      z-index: 2;
+
+      &::after {
+        position: absolute;
+        content: '';
+        background: var(--SecondoryColor);
+        height: 5px;
+        width: 120px;
+        right: 0;
+        bottom: 5px;
+        z-index: -1;
+      }
+    }
+  }
+
+  .secContent {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+
+    .singleDestination {
+      height: 100%;
+      display: grid;
+      row-gap: 10px;
+      padding: 1rem;
+      border-radius: 10px;
+      align-items: center;
+      background: var(--cardHover);
+      box-shadow: 0 2px 4px rgba(140, 140, 141, 0.54);
+      overflow: hidden;
+
+      &:hover {
+        background: var(--cardBG);
+        box-shadow: 1px 4px 4px rgba(85, 85, 114, 0.549);
+        transition: 0.3s ease;
+      }
+
+      .imageDiv {
+        height: 180px;
+        width: 100%;
+        overflow: hidden;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+          border-radius: 10px;
+        }
+
+        &:hover img {
+          transform: scale(1.1);
+        }
+      }
+
+      .cardInfo {
+        padding: 1rem;
+
+        .destTitle {
+          color: var(--blackColor);
+          font-size: 1.25rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .continent {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding-bottom: inherit;
+
+          .icon {
+            color: var(--textColor);
+            font-size: 18px;
+          }
+
+          .name {
+            color: var(--textColor);
+            font-weight: 400;
+            font-size: 14px;
+          }
+        }
+
+        .fees {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1rem 0;
+          border-top: 1px solid var(--greyText);
+          border-bottom: 1px solid var(--greyText);
+
+          .grade {
+            display: flex;
+            align-items: center;
+
+            small {
+              background: var(--gradientColor);
+              color: var(--whiteColor);
+              font-size: 12px;
+              padding: 2px 10px;
+              border-radius: 10px;
+              margin-left: 5px;
+            }
+          }
+
+          .price {
+            font-size: 1.5rem;
+            color: var(--blackColor);
+          }
+        }
+
+        .desc {
+          font-size: 14px;
+          color: var(--textColor);
+          line-height: 1.5;
+          margin-bottom: 1rem;
+          font-weight: 500;
+          padding-top: .5rem !important;
+        }
+
+        .btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0.75rem 1.5rem;
+          color: var(--whiteColor);
+          background: var(--gradientColor);
+          font-weight: 600;
+          border-radius: 5px;
+
+          &:hover {
+            background: var(--PrimaryColor);
+          }
+
+          .icon {
+            margin-left: 5px;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .secContent {
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .secContent {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+}
